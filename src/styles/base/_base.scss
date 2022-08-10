@@ -1,0 +1,49 @@
+html {
+
+}
+
+body, html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: $dark;
+    position: relative;
+}
+
+.ball {
+    border-radius: $br-circle;
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    filter: blur(85px);
+    opacity: .7;
+}
+
+.green-ball {
+    background-color: $green;
+    right: -30px;
+    bottom: -30px;
+    width: 330px;
+    height: 330px;
+}
+
+.blue-ball {
+    top: 20px;
+    left: 100px;
+    background-color: $blue;
+}
+
+.red-ball {
+    right: 15%;
+    top: -60px;
+    width: 360px;
+    height: 360px;
+    background-color: $red;
+}
+
+.yellow-ball {
+    background-color: $yellow;
+    bottom: -35px;
+}
