@@ -1,0 +1,39 @@
+.error-msg {
+    color: $red;
+    padding: $sep-xxs $sep-md;
+    background-color: #da1b1e3f;
+    border-radius: $br-sm;
+}
+
+.popup {
+    padding: $sep-xs $sep-md;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    border-radius: $br-sm;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-70px);
+    transition: transform .2s ease;
+
+    .icon {
+        margin-right: $sep-sm;
+    }
+
+    .text-popup {
+        color: $dark;
+    }
+}
+
+.popup-success {
+    background-color: $green;
+}
+
+.popup-error {
+    background-color: $red;
+}
+
+.popup-active {
+    transform: translateX(-50%) translateY(0px);
+}

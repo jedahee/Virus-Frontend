@@ -16,6 +16,8 @@
 
         .btn-primary-container {
             width: 100%;
+            margin-top: $sep-xl;
+            
         }
     }
 
@@ -28,11 +30,6 @@
         .input {
             margin: $sep-sm 0;
         }
-
-        .input:nth-child(4) {
-            margin-bottom: $sep-xl;
-        }
-
         
     }
 }

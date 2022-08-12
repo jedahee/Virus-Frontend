@@ -8,34 +8,46 @@
     <div class="icon arrow-icon"></div>
 </div>
 
+<div class="popup">
+    <div class="icon info-icon"></div>
+    <span class="text-popup">Mensaje</span>
+</div>
+
 <article class="register-article">
     <img src="../../../assets/img/virus_logo.png" alt="Logo Virus">
-    <form>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
         <section class="inputs">
             <div class="input">
-                <input type="text" class="input-text" placeholder="Nombre de usuario">
+                <input type="text" required [(ngModel)]="user.name" name="name" #name="ngModel" class="input-text" placeholder="Nombre de usuario">
                 <div class="icon user-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="!name.errors?.['required'] || name.pristine">Este campo es obligatorio</span>
 
             <div class="input">
-                <input type="text" class="input-text" placeholder="Correo electrónico">
+                <input type="text" required email [(ngModel)]="user.email" name="email" #email="ngModel" class="input-text" placeholder="Correo electrónico">
                 <div class="icon at-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="!email.errors?.['required'] || email.pristine">Este campo es obligatorio</span>
+            <span class="error-msg" [hidden]="!email.errors?.['email']">Debe tener formato Email</span>
 
             <div class="input">
-                <input type="password" class="input-text" placeholder="Contraseña">    
+                <input type="password" required [(ngModel)]="user.password" minlength="6" maxlength="50" name="password" #passwordC #password="ngModel" class="input-text" placeholder="Contraseña">    
                 <div class="icon lock-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="!password.errors?.['required'] || password.pristine">Este campo es obligatorio</span>
+            <span class="error-msg" [hidden]="!password.errors?.['minlength'] && !password.errors?.['maxlength']">Debe tener entre 6 y 50 caracteres</span>
 
             <div class="input">
-                <input type="password" class="input-text" placeholder="Repetir contraseña">    
+                <input type="password" #confirmPass (keyup)="checkConfirmPassword()" class="input-text" placeholder="Repetir contraseña">    
                 <div class="icon lock-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="isSamePassword">Las contraseñas deben ser iguales</span>
+
             
         </section>
 
         <div class="btn-primary-container">
-            <input class="btn-primary" type="submit" value="Crear cuenta">
+            <input class="btn-primary" [disabled]="!registerForm.valid" type="submit" value="Crear cuenta">
             <div class="yellow-block block"></div>
             <div class="green-block block"></div>
             <div class="blue-block block"></div>

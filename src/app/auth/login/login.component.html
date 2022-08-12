@@ -10,18 +10,22 @@
 
 <article class="login-article">
     <img src="../../../assets/img/virus_logo.png" alt="Logo Virus">
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
         <section class="inputs">
             
             <div class="input">
-                <input type="text" class="input-text" placeholder="Correo electrónico">
+                <input required email [(ngModel)]="user.email" name="email" #email="ngModel" type="text" class="input-text" placeholder="Correo electrónico">
                 <div class="icon at-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="!email.errors?.['required'] || email.pristine">Este campo es obligatorio</span>
+            <span class="error-msg" [hidden]="!email.errors?.['email']">Debe tener formato Email</span>
 
             <div class="input">
-                <input type="password" class="input-text" placeholder="Contraseña">    
+                <input type="password" required [(ngModel)]="user.password" minlength="6" maxlength="50" name="password" #password="ngModel" class="input-text" placeholder="Contraseña">    
                 <div class="icon lock-icon"></div>
             </div>
+            <span class="error-msg" [hidden]="!password.errors?.['required'] || password.pristine">Este campo es obligatorio</span>
+            <span class="error-msg" [hidden]="!password.errors?.['minlength'] && !password.errors?.['maxlength']">Debe tener entre 6 y 50 caracteres</span>
             
             <div class="ch">
                 <input type="checkbox" name="credentials" id="credentials">
@@ -31,7 +35,7 @@
         </section>
 
         <div class="btn-primary-container">
-            <input class="btn-primary" type="submit" value="Entrar">
+            <input class="btn-primary" [disabled]="!loginForm.valid" type="submit" value="Entrar">
             <div class="yellow-block block"></div>
             <div class="green-block block"></div>
             <div class="blue-block block"></div>

@@ -8,9 +8,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  // Cambiar cuando se cree la interfaz
+  public user: any;
+
+  constructor() {
+    this.user = {
+      email: "",
+      password: ""
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  // Cambiar cuando se cree la interfaz
+  onSubmit(user: any) {
+    console.log("llega");
   }
 
 }
