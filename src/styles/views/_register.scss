@@ -1,0 +1,38 @@
+.register-article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 256px;
+        margin-bottom: $sep-lg;
+    }
+
+    form {
+        width: 30%;
+
+        .btn-primary-container {
+            width: 100%;
+        }
+    }
+
+    form > .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        .input {
+            margin: $sep-sm 0;
+        }
+
+        .input:nth-child(4) {
+            margin-bottom: $sep-xl;
+        }
+
+        
+    }
+}

@@ -1,0 +1,40 @@
+.link-container {
+    position: fixed;
+    top: 25px;
+    right: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    color: $white;
+    margin-right: $sep-xxs;
+}
+
+.link::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 2px;
+    background-color: $white;
+    width: 80%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .2s ease;
+}
+
+.link-container:hover .link::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.link-container .icon {
+    transition: transform .2s ease;
+}
+
+.link-container:hover .icon {
+    transform: translateX(5px);
+}

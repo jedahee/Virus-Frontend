@@ -1,0 +1,87 @@
+// INPUTS
+
+.input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: max-content;
+    padding: $sep-xxs + 2px $sep-sm;
+    border-radius: $br-sm;
+    border: 2px solid $white;
+    transition: border .2s ease;
+
+    .icon {
+        position: absolute;
+        right: 20px;
+    }
+}
+
+.input:hover, .input:focus {
+    border: 2px solid $blue;
+}
+
+.input-text {
+    width: 90%;
+    background-color: transparent;
+    color: $white;
+    font-size: $fs-md +.1em;
+}
+
+.input-text[type="password"] {
+    letter-spacing: 1.5px;
+}
+
+// CHECKBOX
+
+.ch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .label-ch {
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+        border-radius: $br-xs;
+        background-color: $green;
+        border: 2px solid transparent;
+        margin-right: $sep-xs;
+        position: relative;
+        transition: border .2s ease;
+    }
+
+    #credentials {
+        height: 0px;
+        width: 0px;
+        display: none;
+    }
+
+    .text-ch {
+        cursor: pointer;
+        color: $white;
+    }
+}
+
+.label-ch::after {
+    content: "";
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+    border-radius: $br-circle;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .2s ease;
+}
+
+#credentials:checked + .label-ch::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.ch:hover .label-ch, .ch:focus .label-ch {
+    border: 2px solid $white;
+}

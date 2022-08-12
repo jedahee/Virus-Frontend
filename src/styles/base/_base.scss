@@ -13,6 +13,8 @@ body {
 }
 
 .ball {
+    pointer-events: none;
+    z-index: 0;
     border-radius: $br-circle;
     position: fixed;
     width: 300px;

@@ -7,6 +7,13 @@
 @import './styles/base/base';
 
 /* COMPONENTS */
+@import './styles/components/link';
+@import './styles/components/button';
+@import './styles/components/input';
+@import './styles/components/icon';
 
+/* VIEWS */
+@import './styles/views/login';
+@import './styles/views/register';
 
 /* LAYOUT */
