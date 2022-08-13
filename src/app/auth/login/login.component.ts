@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,34 @@ export class LoginComponent implements OnInit {
 
   // Cambiar cuando se cree la interfaz
   public user: any;
+  public loginForm!: FormGroup;
+  public isSubmitted: boolean = false;
 
-  constructor() {
-    this.user = {
-      email: "",
-      password: ""
-    }
+  constructor(private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email
+        //Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(50)        
+      ])
+    });
   }
 
   ngOnInit(): void {
   }
 
   // Cambiar cuando se cree la interfaz
-  onSubmit(user: any) {
-    console.log("llega");
+  onSubmit() {
+    if(this.loginForm.valid){
+      this.isSubmitted = true;      
+      console.log("User Login Form Submit", this.loginForm.value);
+    }
+  
   }
 
 }
