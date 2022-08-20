@@ -18,10 +18,10 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <section class="inputs">
             <div class="input">
-                <input type="text" formControlName="name" required name="name" class="input-text" placeholder="Nombre de usuario">
+                <input type="text" formControlName="username" required name="username" class="input-text" placeholder="Nombre de usuario">
                 <div class="icon user-icon"></div>
             </div>
-            <span class="error-msg" *ngIf="registerForm.get('name')?.hasError('required') && isSubmitted">Este campo es obligatorio</span>
+            <span class="error-msg" *ngIf="registerForm.get('username')?.hasError('required') && isSubmitted">Este campo es obligatorio</span>
 
             <div class="input">
                 <input type="text" formControlName="email" required email name="email" class="input-text" placeholder="Correo electrónico">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,10 +18,10 @@ export class RegisterComponent implements OnInit {
   public isSubmitted: boolean = false;
   public passw: string = "";
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private auth_service: AuthService, private formBuilder: FormBuilder) {
     
     this.registerForm = this.formBuilder.group({
-      name: new FormControl('', [
+      username: new FormControl('', [
         Validators.required,
       ]),
       email: new FormControl('', [
@@ -48,8 +48,15 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     
     if(this.registerForm.valid){
-      this.isSubmitted = true;      
-      console.log("User Registration Form Submit", this.registerForm.value);
+      this.isSubmitted = true;
+      
+      let user = this.registerForm.value;
+
+      this.auth_service.register(user).subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      });
     }
   }
 
