@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
 *, *::after, *::before, input, select, option, table *, table {
     font-family: 'Poppins', sans-serif;
 } 
 
+h1, button, input[type="submit"] {
+    font-family: 'Bebas Neue', cursive;
+}

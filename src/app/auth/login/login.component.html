@@ -3,15 +3,15 @@
 <div class="ball red-ball"></div>
 <div class="ball yellow-ball"></div>
 
-<div routerLink="/register" class="link-container">
+<div routerLink="/register" data-aos="fade-left" data-aos-duration="700" class="link-container">
     <a class="link">Crear cuenta</a>
     <div class="icon arrow-icon"></div>
 </div>
 
 <article class="login-article">
-    <img src="../../../assets/img/virus_logo.png" alt="Logo Virus">
+    <img src="../../../assets/img/virus_logo.png" alt="Logo Virus" title="Virus" data-aos="fade-down" data-aos-duration="700">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <section class="inputs">
+        <section class="inputs" data-aos="fade-up" data-aos-duration="700">
             
             <div class="input">
                 <input required email formControlName="email" name="email" type="text" class="input-text" placeholder="Correo electrónico">
@@ -34,8 +34,8 @@
             </div>
         </section>
 
-        <div class="btn-primary-container">
-            <input class="btn-primary" [disabled]="!loginForm.valid" type="submit" value="Entrar">
+        <div class="btn-primary-container" data-aos="fade-up" data-aos-duration="700">
+            <input class="btn-primary" [disabled]="!loginForm.valid" type="submit" value="ENTRAR">
             <div class="yellow-block block"></div>
             <div class="green-block block"></div>
             <div class="blue-block block"></div>

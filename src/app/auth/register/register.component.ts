@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import * as Aos from 'aos';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -38,6 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    Aos.init()
   }
 
   checkConfirmPassword(): void {

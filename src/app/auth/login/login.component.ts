@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angula
 export class LoginComponent implements OnInit {
 
   // Cambiar cuando se cree la interfaz
-  public user: any;
+  public user: User = <User>{};
   public loginForm!: FormGroup;
   public isSubmitted: boolean = false;
 
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    Aos.init();
   }
 
   // Cambiar cuando se cree la interfaz
