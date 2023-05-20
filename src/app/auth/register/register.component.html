@@ -31,7 +31,7 @@
             <span class="error-msg" *ngIf=" registerForm.get('email')?.hasError('email') && isSubmitted">Debe tener formato Email</span>
 
             <div class="input">
-                <input type="password" formControlName="password" required minlength="6" maxlength="50" name="password" #passwordC class="input-text" placeholder="Contraseña">    
+                <input type="password" (keyup)="checkConfirmPassword()" formControlName="password" required minlength="6" maxlength="50" name="password" #passwordC class="input-text" placeholder="Contraseña">    
                 <div class="icon lock-icon"></div>
             </div>
             <span class="error-msg" *ngIf="registerForm.get('password')?.hasError('required') && isSubmitted">Este campo es obligatorio</span>
