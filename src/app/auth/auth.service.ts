@@ -13,10 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public register(user: User) {
-    let data = {
-      user: user
-    }
 
-    return this.http.post<any>(this.url + 'auth/sign-up', data);
+    return this.http.post<any>(this.url + 'auth/sign-up', user);
   }
 }
