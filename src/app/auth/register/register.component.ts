@@ -3,6 +3,8 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import * as Aos from 'aos';
+import { AnimService } from 'src/app/services/anim.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +13,9 @@ import * as Aos from 'aos';
 export class RegisterComponent implements OnInit {
   @ViewChild('passwordC') password: ElementRef = <ElementRef>{};
   @ViewChild('confirmPass') confirmPass: ElementRef = <ElementRef>{};
- 
+  @ViewChild('error_msg_ref') error_msg_ref: ElementRef = <ElementRef>{};
+  @ViewChild('success_msg_ref') success_msg_ref: ElementRef = <ElementRef>{};
+
   // Cambiar cuando se cree la interfaz
   public user: any;
   public isSamePassword: boolean = true;
@@ -19,7 +23,7 @@ export class RegisterComponent implements OnInit {
   public isSubmitted: boolean = false;
   public passw: string = "";
 
-  constructor(private auth_service: AuthService, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private anim_service: AnimService, private auth_service: AuthService, private formBuilder: FormBuilder) {
     
     this.registerForm = this.formBuilder.group({
       username: new FormControl('', [
@@ -55,9 +59,15 @@ export class RegisterComponent implements OnInit {
       let user = this.registerForm.value;
 
       this.auth_service.register(user).subscribe(data => {
-        console.log(data);
+        this.anim_service.popupAnim(this.success_msg_ref, "Se ha creado el usuario", 2000);
+        
+        setTimeout(() => {
+          this.router.navigate(["/"]);
+        }, 2000);
+        
+        
       }, error => {
-        console.log(error);
+          this.anim_service.popupAnim(this.error_msg_ref, "Hubo un error creando el usuario", 2000);
       });
     }
   }

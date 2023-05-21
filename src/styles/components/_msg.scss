@@ -5,7 +5,7 @@
     border-radius: $br-sm;
 }
 
-.popup {
+.msg {
     padding: $sep-xs $sep-md;
     display: flex;
     align-items: center;
@@ -21,19 +21,19 @@
         margin-right: $sep-sm;
     }
 
-    .text-popup {
+    .text-msg {
         color: $dark;
     }
 }
 
-.popup-success {
+.msg-success {
     background-color: $green;
 }
 
-.popup-error {
+.msg-error {
     background-color: $red;
 }
 
-.popup-active {
+.msg-active {
     transform: translateX(-50%) translateY(0px);
 }

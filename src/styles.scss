@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* UTILITIES */
+@import './styles/utilities/variables';
+
+/* TIPO */
+@import './styles/tipo/typography';
+
 /* BASE */
 @import './styles/base/reset';
-@import './styles/base/typography';
-@import './styles/base/variables';
 @import './styles/base/base';
 
 /* COMPONENTS */
@@ -12,6 +16,7 @@
 @import './styles/components/input';
 @import './styles/components/icon';
 @import './styles/components/msg';
+@import './styles/components/popup';
 
 /* VIEWS */
 @import './styles/views/login';
