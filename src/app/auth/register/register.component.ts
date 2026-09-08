@@ -6,6 +6,7 @@ import * as Aos from 'aos';
 import { AnimService } from 'src/app/services/anim.service';
 import { Router } from '@angular/router';
 @Component({
+  standalone: false,
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']

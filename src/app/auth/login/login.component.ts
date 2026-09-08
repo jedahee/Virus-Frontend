@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import * as Aos from 'aos';
 
 @Component({
+  standalone: false,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
